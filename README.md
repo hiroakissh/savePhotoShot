@@ -1,2 +1,0 @@
-# savePhotoShot
-App
