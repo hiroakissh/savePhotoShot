@@ -16,6 +16,8 @@
 		533FD04128DE05D500F200F4 /* savePhotoShotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FD04028DE05D500F200F4 /* savePhotoShotTests.swift */; };
 		533FD04B28DE05D500F200F4 /* savePhotoShotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FD04A28DE05D500F200F4 /* savePhotoShotUITests.swift */; };
 		533FD04D28DE05D500F200F4 /* savePhotoShotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FD04C28DE05D500F200F4 /* savePhotoShotUITestsLaunchTests.swift */; };
+		533FD06028DE071E00F200F4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 533FD05F28DE071E00F200F4 /* RxCocoa */; };
+		533FD06228DE071E00F200F4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 533FD06128DE071E00F200F4 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				533FD06028DE071E00F200F4 /* RxCocoa in Frameworks */,
+				533FD06228DE071E00F200F4 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,12 +141,17 @@
 				533FD02228DE05D400F200F4 /* Sources */,
 				533FD02328DE05D400F200F4 /* Frameworks */,
 				533FD02428DE05D400F200F4 /* Resources */,
+				533FD06328DE072D00F200F4 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = savePhotoShot;
+			packageProductDependencies = (
+				533FD05F28DE071E00F200F4 /* RxCocoa */,
+				533FD06128DE071E00F200F4 /* RxSwift */,
+			);
 			productName = savePhotoShot;
 			productReference = 533FD02628DE05D400F200F4 /* savePhotoShot.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +224,9 @@
 				Base,
 			);
 			mainGroup = 533FD01D28DE05D400F200F4;
+			packageReferences = (
+				533FD05E28DE071E00F200F4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 533FD02728DE05D400F200F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -252,6 +264,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		533FD06328DE072D00F200F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		533FD02228DE05D400F200F4 /* Sources */ = {
@@ -602,6 +634,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		533FD05E28DE071E00F200F4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		533FD05F28DE071E00F200F4 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 533FD05E28DE071E00F200F4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		533FD06128DE071E00F200F4 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 533FD05E28DE071E00F200F4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 533FD01E28DE05D400F200F4 /* Project object */;
 }
